@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Path, HTTPException
+from typing import Optional
 
 app = FastAPI()
 
@@ -28,3 +29,10 @@ def get_student(id: int = Path(..., description="The id of the student you want 
 		raise HTTPException(status_code=404, detail="Student not found")
 	return student
 
+# query parameter
+@app.get("/get-by-name")
+def get_student(name : Optional[str] = None):
+    for student_id in students:
+        if students[student_id]["name"] == name:
+            return students[student_id]
+    return {"data": "Not Found"}
