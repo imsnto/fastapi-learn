@@ -1,9 +1,10 @@
 # fastapi-learn
-# virtual environment 
-- python3 -m venv venv
+- setup virtual environment \
+`python3 -m venv venv` \
+`source venv/bin/activate`
 
-# install fastapi
-- pip install fastapi
+- install fastapi \
+`pip install fastapi`
 
-# install uvicorn
-- pip install uvicorn
+- install uvicorn \
+`pip install uvicorn`
