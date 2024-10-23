@@ -30,8 +30,11 @@ def get_student(id: int = Path(..., description="The id of the student you want 
 	return student
 
 # query parameter
-@app.get("/get-by-name")
-def get_student(name : Optional[str] = None):
+@app.get("/get-by-name/{id}")
+def get_student(*, id : int, name : Optional[str] = None):
+    if id in students:
+        return students[id]
+    
     for student_id in students:
         if students[student_id]["name"] == name:
             return students[student_id]
